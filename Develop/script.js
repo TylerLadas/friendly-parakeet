@@ -6,11 +6,8 @@ const upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const special = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
 
-
-// declare variables //
-
 // user choice variables //
-let passwordLength;
+let passwordLength = "";
 let includeLower;
 let includeUpper;
 let includeNumbers; 
@@ -18,7 +15,6 @@ let includeSpecial;
 
 // chosen password variable //
 let chosenCharacters = [];
-
 
 // prompt how many characters //
 function generatePassword() {
@@ -84,11 +80,11 @@ function generatePassword() {
     }
 
   // select array items for password//
+  // set variable to string//
   let randomPassword = "";
 
   for (var i= 0; i < passwordLength; i++) {
     randomPassword = randomPassword + chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
-  console.log(randomPassword)
   }
   return randomPassword;
 };
