@@ -10,14 +10,14 @@ const special = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
 // declare variables //
 
 // user choice variables //
-let passwordLength = "";
+let passwordLength;
 let includeLower;
 let includeUpper;
 let includeNumbers; 
 let includeSpecial;
 
 // chosen password variable //
-let chosenCharacters;
+let chosenCharacters = [];
 
 
 // prompt how many characters //
@@ -45,7 +45,7 @@ function generatePassword() {
       includeSpecial = confirm("Click OK to include special characters?");
     }
 
-  // select array items for password //
+  // select arrays for password //
 
     // all 4 selected //
     if (includeLower && includeUpper && includeNumbers && includeSpecial) {
@@ -79,12 +79,18 @@ function generatePassword() {
       chosenCharacters = upperLetters
     } else if (includeNumbers) {
       chosenCharacters = numbers;
-    } else (includeSpecial {
+    } else  if (includeSpecial) {
       chosenCharacters = special;
     }
 
-  // select array items //
-  
+  // select array items for password//
+  let randomPassword = "";
+
+  for (var i= 0; i < passwordLength; i++) {
+    randomPassword = randomPassword + chosenCharacters[Math.floor(Math.random() * chosenCharacters.length)];
+  console.log(randomPassword)
+  }
+  return randomPassword;
 };
 
 // Get references to the #generate element
