@@ -9,6 +9,7 @@ Create a random password generator using JavaScript.
 *JavaScript
 
 ## Website
+https://tylerladas.github.io/random-password-generator/
 
 
 
