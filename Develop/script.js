@@ -8,11 +8,16 @@ const special = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
 
 
 // declare variables //
+
+// user choice variables //
 let passwordLength = "";
 let includeLower;
 let includeUpper;
 let includeNumbers; 
 let includeSpecial;
+
+// chosen password variable //
+let chosenCharacters;
 
 
 // prompt how many characters //
@@ -25,13 +30,13 @@ function generatePassword() {
     passwordLength = window.prompt("Choose length of password between 8 and 128 characters");
   }
 
-  // confirm variables to include in password //
+  // confirm characters to include in password //
   includeLower = confirm("Click OK to use lowercase letters?");
   includeUpper = confirm("Click OK to use uppercase letters?");
   includeNumbers = confirm("Click OK to include numbers?");
   includeSpecial = confirm("Click OK to include special characters?");
 
-    // if none chosen //
+    // if no characters chosen //
     while (includeLower === false && includeUpper === false && includeNumbers === false && includeSpecial === false) {
       window.alert("At least one type of character must be slected!");
       includeLower = confirm("Click OK to use lowercase letters?");
@@ -41,8 +46,45 @@ function generatePassword() {
     }
 
   // select array items for password //
-  
 
+    // all 4 selected //
+    if (includeLower && includeUpper && includeNumbers && includeSpecial) {
+      chosenCharacters = lowerLetters.concat(upperLetters, numbers, special);
+    // 3 selected //
+    } else if (includeLower && includeUpper && includeNumbers) {
+      chosenCharacters = lowerLetters.concat(upperLetters, numbers)
+    } else if (includeLower && includeUpper && includeSpecial) {
+      chosenCharacters = lowerLetters.concat(upperLetters, special);
+    } else if (includeUpper && includeNumbers && includeSpecial) {
+      chosenCharacters = upperLetters.concat(numbers, special);
+    
+    // 2 selected //
+    } else if (includeLower && includeUpper) {
+      chosenCharacters = lowerLetters.concat(upperLetters);
+    } else if (includeLower && includeNumbers) {
+      chosenCharacters = lowerLetters.concat(numbers);
+    } else if (includeLower && includeSpecial) {
+      chosenCharacters = lowerLetters.concat(special);
+    } else if (includeUpper && includeNumbers) {
+      chosenCharacters = upperLetters.concat(numbers);
+    } else if (includeUpper && includeSpecial) {
+      chosenCharacters = upperLetters.concat(special);
+    } else if (includeSpecial && includeNumbers) {
+      chosenCharacters = special.concat(numbers);
+    
+    // 1 selected //
+    } else if (includeLower) {
+      chosenCharacters = lowerLetters;
+    } else if (includeUpper) {
+      chosenCharacters = upperLetters
+    } else if (includeNumbers) {
+      chosenCharacters = numbers;
+    } else (includeSpecial {
+      chosenCharacters = special;
+    }
+
+  // select array items //
+  
 };
 
 // Get references to the #generate element
